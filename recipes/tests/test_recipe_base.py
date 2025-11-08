@@ -5,6 +5,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 class RecipeTestBase(TestCase):
+    # Test Fixture
     # These methods will be executed before (setUp) and after (tearDown) each function
     # def setUp(self) -> None:
     #     ...
