@@ -24,6 +24,7 @@ class Recipe(models.Model): # class = table
     cover = models.ImageField(upload_to='recipes/covers/%Y/%m/%d/')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, default=None) # Se o registro n conter Category, fica null
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, default=None)
+    
     def __str__(self):
         return self.title
 
