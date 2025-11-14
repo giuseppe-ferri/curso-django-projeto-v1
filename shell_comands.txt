@@ -1,0 +1,37 @@
+# DUPLICAR RECEITAS
+from recipes.models import Recipe
+
+# Buscar receita pelo ID
+r = Recipe.objects.get(id=2)
+r = Recipe.objects.get(pk=2)
+
+# Alterar título e salvar
+r.title = 'Receita da vovó'
+r.save()
+
+# Verificar ID / PK
+r.id
+r.pk
+
+# Criar novas receitas copiando a existente
+for i in range(10): r.id = None; r.title = f'Receita {i+1}'; r.save()
+
+-----------------------------------
+# MUDAR O SLUG
+from recipes.models import Recipe
+
+# Buscar todas as receitas
+recipes = Recipe.objects.all()
+
+# Ver slugs atuais
+for recipe in recipes:
+    print(recipe.slug)
+
+# Tornar cada slug único adicionando o índice ao final
+for index, recipe in enumerate(recipes):
+    recipe.slug = f'{recipe.slug}-{index}'
+    recipe.save()
+
+# Verificar o resultado
+for recipe in recipes:
+    print(recipe.slug)
